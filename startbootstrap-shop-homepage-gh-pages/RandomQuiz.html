@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://github.com/CrisEryk/CrisErykDesignerWeb1/tree/36138371dcadc3559c4bc61e40ceb73ec1ed5bf6/projeto-main/projeto-main/startbootstrap-shop-homepage-gh-pages/startbootstrap-shop-homepage-gh-pages">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+
+    <style>
+        .card{
+            cursor: pointer;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Perguntas de Matématica</h2>
+        <div class="row justify-content-center">
+        <div class="col-md-6">
+         <div class="card shadow text-center">
+            <div class="card-body" id="card-text"></div>
+         </div>
+        </div>
+    </div>
+    </div>
+    
+    <script>
+        // vetor com perguntas//
+        const perguntas = [
+        "Quanto é 566 * 1546?",
+        "Resolva: 8567:675",
+        "Diga qual o nome dessa Banda:",
+    ];
+        const cardText = document.getElementById("card-text");
+        const card = cardText.parentElement;
+        //evento mouse
+        card.addEventListener("mouseenter", () => {
+            const randomIndex = Math.floor(Math.random() * perguntas.length);
+            cardText.innerText = perguntas[randomIndex];
+        });
+        card.addEventListener("mouseleave", () =>{
+            cardText.innerText = "";
+        });
+    </script>
+</body>
+</html>

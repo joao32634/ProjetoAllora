@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            height: 2000px;
+            /*só para ter rolagem*/
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .alvo{
+            margin-top: 800px;
+            height: 200px;
+            background: lightgray;
+        }
+
+        .imagem{
+            width: 150px;
+            opacity: 0;
+            transform: translateY(60px);
+            /*começa deslocada*/
+            transition: all 2s ease-out;
+            /* all significa TODAS as propriedades do CSS que aceitam o transition
+            ease-out significa - começa rápido e termina devagar*/
+        }
+
+        .visivel{
+            opacity: 1;
+            transform: translateY(0);
+            /* sobe para posição final*/
+        }
+
+        .invisivel{
+            opacity: 0;
+            transform:translateY(0);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="alvo" id="alvo"><img src="https://m.media-amazon.com/images/I/61kwdPH8+xL._AC_SL1500_.jpg" class="imagem" id="img"></div>
+
+<script>
+    const img = document.getElementById("img");
+    /*img é uma variavel que armazena o id para futuros usos não precisar de ficar escrevendo id por id*/
+    
+    /*new IntersectionObserver - Cria um objeto com o objetivo de observar um elemento ou um conjunto de elementos*/
+
+    /*forEach - percorre o conjunto de elementos observados*/
+    
+    /*if - verifica se algo é verdadeiro verdadeiro (true) ou falso (false)*/
+    
+    /*.isIntersecting - propriedade que inforna se a região do elemento observado está na tela*/
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting == true) {
+                img.classList.add("visivel");
+            }
+            if (entry.isIntersecting == false) {
+                  img.classList.remove("visivel");
+            }
+        });
+    });
+
+    /*inicia a observação do objeto observer*/
+    observer.observe(img);
+</script>
+</body>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animação</title>
+</head>
+
+<style>
+        .caixa {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            animation: mover 3s ease-in-out forwards;
+        }
+        @keyframes mover {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(300px);
+            }
+        }
+</style>
+
+<body>
+    <div class="caixa" id="caixa"></div>
+    <script>
+        const caixa = document.getElementById("caixa");
+
+        caixa.addEventListener("animationstart", (event) => {
+            caixa.style.border = "3px solid green";
+        });
+
+        caixa.addEventListener("animationend", (event) => {
+            caixa.style.border = "3px solid blue";
+        })
+    </script>
+</body>
+</html>
